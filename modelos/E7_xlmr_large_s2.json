@@ -1,0 +1,1 @@
+{"preset": "xlm_roberta_large_multi", "lr": 1e-05, "epocas": 1, "lote": 8, "max_len": 160, "semilla": 2026, "congelar_embeddings": true}
