@@ -1,13 +1,13 @@
 # Proyecto Parte 2: Referencias y uso de IA generativa
 
-**Grupo 45**: Juan Diego Ramírez Garzón, Sebastián Vargas Otero, Mateo Zambrano Burbano, Nicolás Mario Romero Colmenares
+**Grupo 35**: Juan Diego Ramírez Garzón, Sebastián Vargas Otero, Mateo Zambrano Burbano, Nicolás Mario Romero Colmenares
 
 ## 1. Modelos preentrenados
 
 | Modelo | Uso en el proyecto | Fuente / enlace | Licencia |
 |---|---|---|---|
 | **XLM-RoBERTa base** (`xlm_roberta_base_multi`) | Experimentos E3-E5: comparar las configuraciones de datos (con y sin aumentación). *Fine-tuning* completo con una cabeza de clasificación de 3 clases | KerasHub: https://keras.io/keras_hub/api/models/xlm_roberta/ · Kaggle Models: https://www.kaggle.com/models/keras/xlm_roberta · Original: https://github.com/facebookresearch/fairseq/tree/main/examples/xlmr | MIT |
-| **XLM-RoBERTa large** (`xlm_roberta_large_multi`) | Experimentos E6-E7 y miembros del ensamble final (dos semillas). *Fine-tuning* completo con una cabeza de clasificación de 3 clases | KerasHub y Kaggle Models (mismos enlaces) | MIT |
+| **XLM-RoBERTa large** (`xlm_roberta_large_multi`) | Experimentos E6-E7 y miembros del ensamble final E8 (dos semillas). *Fine-tuning* de todo el modelo excepto la matriz de *embeddings* de tokens (congelada para que cupiera en la GPU T4 de Colab), 1 época, con una cabeza de clasificación de 3 clases | KerasHub y Kaggle Models (mismos enlaces) | MIT |
 
 Referencia del modelo: Conneau, A., Khandelwal, K., Goyal, N., et al. (2020). *Unsupervised Cross-lingual Representation Learning at Scale*. ACL 2020. https://arxiv.org/abs/1911.02116
 
@@ -34,12 +34,10 @@ Semilla fija (`SEMILLA = 42`), así que los conjuntos aumentados son reproducibl
 
 ## 4. Librerías
 
-TensorFlow, Keras 3, KerasHub, scikit-learn (partición y métricas), pandas, NumPy, SciPy (prueba de McNemar), matplotlib y seaborn.
+TensorFlow, Keras 3, KerasHub, scikit-learn (partición, métricas y la referencia clásica TF-IDF + regresión logística), pandas, NumPy, SciPy (prueba de McNemar), matplotlib y seaborn.
 
 ## 5. Uso de IA generativa en el desarrollo del proyecto
 
-> **[Completar y ajustar con lo que realmente hizo el grupo]**
-
-- Se usó un asistente de IA (Claude, de Anthropic) como apoyo para: interpretar el enunciado, proponer el plan de trabajo, sugerir estrategias de aumentación compatibles con las restricciones del curso, y escribir y depurar parte del código del notebook (carga, aumentación, funciones de entrenamiento y evaluación).
+- Se usó un asistente de IA (Claude, de Anthropic) como apoyo para: interpretar el enunciado, proponer el plan de trabajo, sugerir estrategias de aumentación compatibles con las restricciones del curso, escribir y depurar parte del código del notebook (carga, aumentación, funciones de entrenamiento y evaluación, adaptación a Google Colab) y revisar que el texto del notebook fuera consistente con los resultados obtenidos.
 - El grupo revisó, ejecutó y validó todo el código, tomó las decisiones finales de modelado a partir de los resultados experimentales e hizo el análisis de resultados y errores.
 - La IA generativa **no** se usó para etiquetar textos de `eval`, ni para generar datos de entrenamiento, ni como parte del modelo entregado. Las predicciones enviadas a Kaggle provienen exclusivamente del modelo entregado.
